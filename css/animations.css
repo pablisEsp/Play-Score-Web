@@ -3,30 +3,52 @@
 /* Soccer Ball Animation */
 .soccer-ball {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23ffffff" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/><path fill="%23000000" d="M256 128c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C288 142.3 273.7 128 256 128zM256 320c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C288 334.3 273.7 320 256 320zM352 224c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C384 238.3 369.7 224 352 224zM160 224c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C192 238.3 177.7 224 160 224z"/></svg>');
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/football.png');
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 100;
     animation: bounce-across 15s linear infinite;
-    opacity: 0.7;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.soccer-ball:hover {
+    animation-play-state: paused;
+    transform: scale(1.2) rotate(45deg) !important;
 }
 
 .soccer-ball:nth-child(2) {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     animation-delay: 5s;
     animation-duration: 20s;
     top: 40%;
 }
 
 .soccer-ball:nth-child(3) {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     animation-delay: 10s;
     animation-duration: 18s;
     top: 70%;
+}
+
+.soccer-ball:nth-child(4) {
+    width: 15px;
+    height: 15px;
+    animation-delay: 7s;
+    animation-duration: 22s;
+    top: 15%;
+}
+
+.soccer-ball:nth-child(5) {
+    width: 22px;
+    height: 22px;
+    animation-delay: 3s;
+    animation-duration: 25s;
+    top: 60%;
 }
 
 @keyframes bounce-across {
@@ -116,14 +138,24 @@
 
 /* Typing Animation for Tagline */
 .typing-animation {
-    overflow: hidden;
-    border-right: .15em solid var(--primary-color);
+    position: relative;
+    display: inline-block;
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
-    animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end) forwards;
+}
+
+.typing-animation::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary-color);
+    animation: blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
@@ -132,6 +164,6 @@
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--primary-color); }
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
 }

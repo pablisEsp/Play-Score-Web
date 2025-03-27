@@ -21,10 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Thank you! We\'ll notify you when we launch.' :
                     '¡Gracias! Te notificaremos cuando lancemos.';
                 successMessage.style.color = 'var(--success-color)';
-                successMessage.style.marginTop = '10px';
-                successMessage.style.position = 'absolute';
-                successMessage.style.right = '0';
-                successMessage.style.textAlign = 'right';
+                successMessage.style.marginTop = '15px';
+                successMessage.style.textAlign = 'center';
+                successMessage.style.width = '100%';
                 
                 // Remove any existing message
                 const existingMessage = newsletterForm.querySelector('.message');
@@ -33,10 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 successMessage.classList.add('message');
-                newsletterForm.appendChild(successMessage);
                 
-                // Make sure the form has position relative for absolute positioning
-                newsletterForm.style.position = 'relative';
+                // Append the message after the form
+                newsletterForm.parentNode.insertBefore(successMessage, newsletterForm.nextSibling);
                 
                 // Remove message after 5 seconds
                 setTimeout(() => {
@@ -68,11 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Create and show success message
                 const successMessage = document.createElement('p');
-                successMessage.textContent = currentLanguage === 'en' ? 
-                    'Thank you for your message! We\'ll get back to you soon.' : 
+                successMessage.textContent = currentLanguage === 'en' ?
+                    'Thank you for your message! We\'ll get back to you soon.' :
                     '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.';
                 successMessage.style.color = 'var(--success-color)';
-                successMessage.style.marginTop = '10px';
+                successMessage.style.marginTop = '15px';
+                successMessage.style.textAlign = 'center';
+                successMessage.style.width = '100%';
                 
                 // Remove any existing message
                 const existingMessage = contactForm.querySelector('.message');
@@ -81,7 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 successMessage.classList.add('message');
-                contactForm.appendChild(successMessage);
+                
+                // Append the message after the form
+                contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
                 
                 // Remove message after 5 seconds
                 setTimeout(() => {

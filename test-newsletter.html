@@ -69,10 +69,9 @@
                 const successMessage = document.createElement('p');
                 successMessage.textContent = 'Thank you! We\'ll notify you when we launch.';
                 successMessage.style.color = '#28a745';
-                successMessage.style.marginTop = '10px';
-                successMessage.style.position = 'absolute';
-                successMessage.style.right = '0';
-                successMessage.style.textAlign = 'right';
+                successMessage.style.marginTop = '15px';
+                successMessage.style.textAlign = 'center';
+                successMessage.style.width = '100%';
                 
                 // Remove any existing message
                 const existingMessage = document.querySelector('.message');
@@ -81,10 +80,9 @@
                 }
                 
                 successMessage.classList.add('message');
-                this.appendChild(successMessage);
                 
-                // Make sure the form has position relative for absolute positioning
-                this.style.position = 'relative';
+                // Append the message after the form
+                this.parentNode.insertBefore(successMessage, this.nextSibling);
                 
                 // Remove message after 5 seconds
                 setTimeout(() => {
