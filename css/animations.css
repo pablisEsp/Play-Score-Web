@@ -1,0 +1,137 @@
+/* Animations for Play&Score Coming Soon Page */
+
+/* Soccer Ball Animation */
+.soccer-ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23ffffff" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/><path fill="%23000000" d="M256 128c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C288 142.3 273.7 128 256 128zM256 320c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C288 334.3 273.7 320 256 320zM352 224c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C384 238.3 369.7 224 352 224zM160 224c-17.67 0-32 14.33-32 32c0 17.67 14.33 32 32 32s32-14.33 32-32C192 238.3 177.7 224 160 224z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+    animation: bounce-across 15s linear infinite;
+    opacity: 0.7;
+}
+
+.soccer-ball:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    animation-delay: 5s;
+    animation-duration: 20s;
+    top: 40%;
+}
+
+.soccer-ball:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    animation-delay: 10s;
+    animation-duration: 18s;
+    top: 70%;
+}
+
+@keyframes bounce-across {
+    0% {
+        left: -50px;
+        top: 20%;
+        transform: rotate(0deg);
+    }
+    20% {
+        top: 30%;
+        transform: rotate(72deg);
+    }
+    40% {
+        top: 10%;
+        transform: rotate(144deg);
+    }
+    60% {
+        top: 40%;
+        transform: rotate(216deg);
+    }
+    80% {
+        top: 20%;
+        transform: rotate(288deg);
+    }
+    100% {
+        left: calc(100% + 50px);
+        top: 30%;
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulsing Effect for Call-to-Action Buttons */
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(20, 184, 42, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(20, 184, 42, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(20, 184, 42, 0);
+    }
+}
+
+/* Floating Animation for Icons */
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Background Gradient Animation */
+.gradient-bg {
+    background: linear-gradient(-45deg, #14b82a, #0e8a1f, #4cd95e, #14b82a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Typing Animation for Tagline */
+.typing-animation {
+    overflow: hidden;
+    border-right: .15em solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}

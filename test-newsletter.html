@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Newsletter Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .newsletter {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: relative;
+        }
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            position: relative;
+        }
+        .newsletter input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .newsletter button {
+            background-color: #14b82a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .message {
+            color: #28a745;
+            margin-top: 10px;
+            position: absolute;
+            right: 0;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter">
+        <h2>Get Notified When We Launch</h2>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Notify Me</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Clear the input
+                emailInput.value = '';
+                
+                // Create and show success message
+                const successMessage = document.createElement('p');
+                successMessage.textContent = 'Thank you! We\'ll notify you when we launch.';
+                successMessage.style.color = '#28a745';
+                successMessage.style.marginTop = '10px';
+                successMessage.style.position = 'absolute';
+                successMessage.style.right = '0';
+                successMessage.style.textAlign = 'right';
+                
+                // Remove any existing message
+                const existingMessage = document.querySelector('.message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                successMessage.classList.add('message');
+                this.appendChild(successMessage);
+                
+                // Make sure the form has position relative for absolute positioning
+                this.style.position = 'relative';
+                
+                // Remove message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
