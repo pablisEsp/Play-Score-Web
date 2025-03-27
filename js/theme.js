@@ -30,18 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
         setTheme(!isDarkMode);
     });
     
-    // Initialize theme from localStorage or system preference
+    // Initialize theme from localStorage or default to dark mode
     const savedTheme = localStorage.getItem('playScoreDarkMode');
     
     if (savedTheme !== null) {
         // Use saved preference
         setTheme(savedTheme === 'true');
     } else {
-        // Check for system preference
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDarkMode);
+        // Default to dark mode for first-time visitors
+        setTheme(true);
         
-        // Listen for changes in system preference
+        // Still listen for changes in system preference for future visits
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
             if (localStorage.getItem('playScoreDarkMode') === null) {
                 setTheme(e.matches);

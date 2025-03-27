@@ -9,75 +9,67 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 100;
-    animation: bounce-across 15s linear infinite;
     opacity: 0.8;
     transition: transform 0.3s ease;
+    /* Start balls off-screen */
+    left: -100px;
 }
 
-.soccer-ball:hover {
-    animation-play-state: paused;
-    transform: scale(1.2) rotate(45deg) !important;
+/* Initialize balls with JavaScript for random movement */
+.soccer-ball:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    top: 25%;
 }
 
 .soccer-ball:nth-child(2) {
     width: 20px;
     height: 20px;
-    animation-delay: 5s;
-    animation-duration: 20s;
     top: 40%;
 }
 
 .soccer-ball:nth-child(3) {
     width: 25px;
     height: 25px;
-    animation-delay: 10s;
-    animation-duration: 18s;
     top: 70%;
 }
 
 .soccer-ball:nth-child(4) {
     width: 15px;
     height: 15px;
-    animation-delay: 7s;
-    animation-duration: 22s;
     top: 15%;
 }
 
 .soccer-ball:nth-child(5) {
     width: 22px;
     height: 22px;
-    animation-delay: 3s;
-    animation-duration: 25s;
     top: 60%;
 }
 
-@keyframes bounce-across {
-    0% {
-        left: -50px;
-        top: 20%;
-        transform: rotate(0deg);
-    }
-    20% {
-        top: 30%;
-        transform: rotate(72deg);
-    }
-    40% {
-        top: 10%;
-        transform: rotate(144deg);
-    }
-    60% {
-        top: 40%;
-        transform: rotate(216deg);
-    }
-    80% {
-        top: 20%;
-        transform: rotate(288deg);
-    }
-    100% {
-        left: calc(100% + 50px);
-        top: 30%;
-        transform: rotate(360deg);
-    }
+/* Ball animations will be applied via JavaScript for randomness */
+@keyframes ball-movement-1 {
+    0% { left: -50px; top: 20%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 60%; transform: rotate(360deg); }
+}
+
+@keyframes ball-movement-2 {
+    0% { left: -50px; top: 70%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 30%; transform: rotate(360deg); }
+}
+
+@keyframes ball-movement-3 {
+    0% { left: -50px; top: 40%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 10%; transform: rotate(360deg); }
+}
+
+@keyframes ball-movement-4 {
+    0% { left: -50px; top: 10%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 50%; transform: rotate(360deg); }
+}
+
+@keyframes ball-movement-5 {
+    0% { left: -50px; top: 50%; transform: rotate(0deg); }
+    100% { left: calc(100% + 50px); top: 20%; transform: rotate(360deg); }
 }
 
 /* Pulsing Effect for Call-to-Action Buttons */
@@ -155,7 +147,9 @@
     height: 100%;
     width: 3px;
     background-color: var(--primary-color);
-    animation: blink-caret .75s step-end infinite;
+    animation:
+        blink-caret .75s step-end infinite,
+        hide-cursor 1s 4.5s forwards; /* Hide cursor 1s after typing finishes */
 }
 
 @keyframes typing {
@@ -166,4 +160,8 @@
 @keyframes blink-caret {
     from, to { opacity: 0 }
     50% { opacity: 1 }
+}
+
+@keyframes hide-cursor {
+    to { opacity: 0 }
 }
