@@ -63,7 +63,7 @@
                 <div class="newsletter">
                     <h2 data-en="Get Notified When We Launch" data-es="Recibe una Notificación Cuando Lancemos"></h2>
                     <form action="https://formsubmit.co/newsletter@playscore.fun" method="POST" id="newsletter-form">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" name="email" placeholder="Email" required>
                         <button type="submit" class="pulse-effect" data-en="Notify Me" data-es="Notifícame"></button>
                     </form>
                 </div>
@@ -143,13 +143,13 @@
                 <div class="contact-content">
                     <form action="https://formsubmit.co/contact@playscore.fun" method="POST" id="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Name" required data-en-placeholder="Name" data-es-placeholder="Nombre">
+                            <input type="text" id="name" name="name" placeholder="Name" required data-en-placeholder="Name" data-es-placeholder="Nombre">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder="Email" required>
+                            <input type="email" name="email" id="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" placeholder="Message" required data-en-placeholder="Message" data-es-placeholder="Mensaje"></textarea>
+                            <textarea id="message" name="message" placeholder="Message" required data-en-placeholder="Message" data-es-placeholder="Mensaje"></textarea>
                         </div>
                         <button type="submit" class="pulse-effect" data-en="Send Message" data-es="Enviar Mensaje"></button>
                     </form>
