@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play & Score - Red Social Deportiva para Fútbol Amateur</title>
-    <meta name="description" content="Play & Score: La aplicación multiplataforma que combina red social deportiva con herramientas de gestión para fútbol amateur. Disponible en Android y Desktop.">
+    <title data-lang="page-title">Play & Score - Red Social Deportiva para Fútbol Amateur</title>
+    <meta name="description" data-lang="page-description" content="Play & Score: La aplicación multiplataforma que combina red social deportiva con herramientas de gestión para fútbol amateur. Disponible en Android y Desktop.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,11 +20,15 @@
                 <span>Play & Score</span>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Inicio</a>
-                <a href="#features" class="nav-link">Características</a>
-                <a href="#screenshots" class="nav-link">Capturas</a>
-                <a href="#download" class="nav-link">Descargar</a>
-                <a href="#contact" class="nav-link">Contacto</a>
+                <a href="#home" class="nav-link" data-lang="nav-home">Inicio</a>
+                <a href="#features" class="nav-link" data-lang="nav-features">Características</a>
+                <a href="#screenshots" class="nav-link" data-lang="nav-screenshots">Capturas</a>
+                <a href="#download" class="nav-link" data-lang="nav-download">Descargar</a>
+                <a href="#contact" class="nav-link" data-lang="nav-contact">Contacto</a>
+                <button class="language-toggle" id="language-toggle">
+                    <i class="fas fa-globe"></i>
+                    <span class="lang-text">EN</span>
+                </button>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -40,34 +44,34 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="highlight">Play & Score</span>
-                    <span class="subtitle">La revolución del fútbol amateur</span>
+                    <span class="subtitle" data-lang="hero-subtitle">La revolución del fútbol amateur</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-lang="hero-description">
                     Una aplicación multiplataforma que combina red social deportiva con herramientas de gestión avanzadas. 
                     Conecta con jugadores, organiza torneos y gestiona equipos de forma profesional.
                 </p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">
                         <i class="fas fa-download"></i>
-                        Descargar Ahora
+                        <span data-lang="btn-download">Descargar Ahora</span>
                     </a>
                     <a href="#features" class="btn btn-secondary">
                         <i class="fas fa-play"></i>
-                        Ver Características
+                        <span data-lang="btn-features">Ver Características</span>
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">85%</span>
-                        <span class="stat-label">Código Compartido</span>
+                        <span class="stat-label" data-lang="stat-shared-code">Código Compartido</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">2</span>
-                        <span class="stat-label">Plataformas</span>
+                        <span class="stat-label" data-lang="stat-platforms">Plataformas</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Tiempo Real</span>
+                        <span class="stat-label" data-lang="stat-realtime">Tiempo Real</span>
                     </div>
                 </div>
             </div>
@@ -88,12 +92,12 @@
                                             <div class="avatar"></div>
                                             <div class="user-details">
                                                 <span class="username">FC Barcelona</span>
-                                                <span class="time">hace 2h</span>
+                                                <span class="time" data-lang="preview-time">hace 2h</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-content">
-                                        <p>¡Victoria épica 3-2! 🔥⚽</p>
+                                        <p data-lang="preview-message">¡Victoria épica 3-2! 🔥⚽</p>
                                         <div class="match-score">
                                             <span class="team">FC Barcelona</span>
                                             <span class="score">3 - 2</span>
@@ -118,51 +122,51 @@
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2>Características Principales</h2>
-                <p>Todo lo que necesitas para gestionar tu experiencia futbolística</p>
+                <h2 data-lang="features-title">Características Principales</h2>
+                <p data-lang="features-subtitle">Todo lo que necesitas para gestionar tu experiencia futbolística</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Red Social Deportiva</h3>
-                    <p>Feed interactivo con publicaciones y estadísticas en tiempo real. Conecta con jugadores y comparte tus mejores momentos.</p>
+                    <h3 data-lang="feature-social-title">Red Social Deportiva</h3>
+                    <p data-lang="feature-social-desc">Feed interactivo con publicaciones y estadísticas en tiempo real. Conecta con jugadores y comparte tus mejores momentos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>Gestión de Torneos</h3>
-                    <p>Crea y administra torneos con emparejamientos automáticos. Calendario inteligente y seguimiento de resultados.</p>
+                    <h3 data-lang="feature-tournaments-title">Gestión de Torneos</h3>
+                    <p data-lang="feature-tournaments-desc">Crea y administra torneos con emparejamientos automáticos. Calendario inteligente y seguimiento de resultados.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Administración Avanzada</h3>
-                    <p>App de escritorio para moderar usuarios, equipos y torneos. Control total de roles y contenido.</p>
+                    <h3 data-lang="feature-admin-title">Administración Avanzada</h3>
+                    <p data-lang="feature-admin-desc">App de escritorio para moderar usuarios, equipos y torneos. Control total de roles y contenido.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Multiplataforma</h3>
-                    <p>Experiencia consistente en Android y Desktop con 85% de código compartido. Material Design 3 optimizado.</p>
+                    <h3 data-lang="feature-multiplatform-title">Multiplataforma</h3>
+                    <p data-lang="feature-multiplatform-desc">Experiencia consistente en Android y Desktop con 85% de código compartido. Material Design 3 optimizado.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Tiempo Real</h3>
-                    <p>Sincronización instantánea con Firebase. Resultados, estadísticas y comunicación en vivo.</p>
+                    <h3 data-lang="feature-realtime-title">Tiempo Real</h3>
+                    <p data-lang="feature-realtime-desc">Sincronización instantánea con Firebase. Resultados, estadísticas y comunicación en vivo.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Estadísticas Detalladas</h3>
-                    <p>Análisis completo de rendimiento, historial de partidos y métricas personalizadas para jugadores y equipos.</p>
+                    <h3 data-lang="feature-stats-title">Estadísticas Detalladas</h3>
+                    <p data-lang="feature-stats-desc">Análisis completo de rendimiento, historial de partidos y métricas personalizadas para jugadores y equipos.</p>
                 </div>
             </div>
         </div>
@@ -172,8 +176,8 @@
     <section id="screenshots" class="screenshots">
         <div class="container">
             <div class="section-header">
-                <h2>Capturas de Pantalla</h2>
-                <p>Descubre la interfaz moderna y intuitiva de Play & Score</p>
+                <h2 data-lang="screenshots-title">Capturas de Pantalla</h2>
+                <p data-lang="screenshots-subtitle">Descubre la interfaz moderna y intuitiva de Play & Score</p>
             </div>
             <div class="screenshots-carousel">
                 <div class="screenshot-container">
@@ -181,7 +185,7 @@
                         <div class="mockup-phone">
                             <div class="mockup-content">
                                 <div class="mock-header">
-                                    <span class="mock-title">Feed Social</span>
+                                    <span class="mock-title" data-lang="screenshot-feed">Feed Social</span>
                                 </div>
                                 <div class="mock-feed">
                                     <div class="mock-post">
@@ -201,13 +205,13 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="screenshot-caption">Feed social interactivo</p>
+                        <p class="screenshot-caption" data-lang="caption-feed">Feed social interactivo</p>
                     </div>
                     <div class="screenshot">
                         <div class="mockup-phone">
                             <div class="mockup-content">
                                 <div class="mock-header">
-                                    <span class="mock-title">Gestión de Equipos</span>
+                                    <span class="mock-title" data-lang="screenshot-teams">Gestión de Equipos</span>
                                 </div>
                                 <div class="mock-team-grid">
                                     <div class="mock-team-card"></div>
@@ -217,13 +221,13 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="screenshot-caption">Administración de equipos</p>
+                        <p class="screenshot-caption" data-lang="caption-teams">Administración de equipos</p>
                     </div>
                     <div class="screenshot">
                         <div class="mockup-phone">
                             <div class="mockup-content">
                                 <div class="mock-header">
-                                    <span class="mock-title">Torneos</span>
+                                    <span class="mock-title" data-lang="screenshot-tournaments">Torneos</span>
                                 </div>
                                 <div class="mock-tournament">
                                     <div class="mock-bracket">
@@ -234,7 +238,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="screenshot-caption">Sistema de torneos</p>
+                        <p class="screenshot-caption" data-lang="caption-tournaments">Sistema de torneos</p>
                     </div>
                 </div>
                 <div class="carousel-controls">
@@ -246,9 +250,9 @@
                     </button>
                 </div>
                 <div class="carousel-dots">
-                    <span class="dot active" onclick="currentScreenshot(1)"></span>
-                    <span class="dot" onclick="currentScreenshot(2)"></span>
-                    <span class="dot" onclick="currentScreenshot(3)"></span>
+                    <span class="dot active" onclick="changeScreenshot(1)"></span>
+                    <span class="dot" onclick="changeScreenshot(2)"></span>
+                    <span class="dot" onclick="changeScreenshot(3)"></span>
                 </div>
             </div>
         </div>
@@ -258,12 +262,12 @@
     <section class="technology">
         <div class="container">
             <div class="section-header">
-                <h2>Tecnología de Vanguardia</h2>
-                <p>Desarrollado con las mejores herramientas para máximo rendimiento</p>
+                <h2 data-lang="tech-title">Tecnología de Vanguardia</h2>
+                <p data-lang="tech-subtitle">Desarrollado con las mejores herramientas para máximo rendimiento</p>
             </div>
             <div class="tech-grid">
                 <div class="tech-category">
-                    <h3>Frontend</h3>
+                    <h3 data-lang="tech-frontend">Frontend</h3>
                     <div class="tech-items">
                         <div class="tech-item">
                             <i class="fab fa-android"></i>
@@ -280,7 +284,7 @@
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3>Backend</h3>
+                    <h3 data-lang="tech-backend">Backend</h3>
                     <div class="tech-items">
                         <div class="tech-item">
                             <i class="fab fa-node-js"></i>
@@ -297,7 +301,7 @@
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3>Arquitectura</h3>
+                    <h3 data-lang="tech-architecture">Arquitectura</h3>
                     <div class="tech-items">
                         <div class="tech-item">
                             <i class="fas fa-layer-group"></i>
@@ -309,7 +313,7 @@
                         </div>
                         <div class="tech-item">
                             <i class="fas fa-sync-alt"></i>
-                            <span>Real-time Sync</span>
+                            <span data-lang="tech-realtime">Real-time Sync</span>
                         </div>
                     </div>
                 </div>
@@ -322,15 +326,15 @@
         <div class="container">
             <div class="download-content">
                 <div class="download-info">
-                    <h2>Descarga Play & Score</h2>
-                    <p>Únete a la comunidad deportiva más innovadora. Disponible para Android y Desktop.</p>
+                    <h2 data-lang="download-title">Descarga Play & Score</h2>
+                    <p data-lang="download-subtitle">Únete a la comunidad deportiva más innovadora. Disponible para Android y Desktop.</p>
                     <div class="download-buttons">
                         <a href="#" class="download-btn android">
                             <div class="btn-icon">
                                 <i class="fab fa-android"></i>
                             </div>
                             <div class="btn-text">
-                                <span>Descargar para</span>
+                                <span data-lang="download-for">Descargar para</span>
                                 <strong>Android</strong>
                             </div>
                         </a>
@@ -339,14 +343,14 @@
                                 <i class="fas fa-desktop"></i>
                             </div>
                             <div class="btn-text">
-                                <span>Descargar para</span>
+                                <span data-lang="download-for">Descargar para</span>
                                 <strong>Desktop</strong>
                             </div>
                         </a>
                     </div>
                     <p class="download-note">
                         <i class="fas fa-info-circle"></i>
-                        Versión actual: 1.0.0 | Requiere Android 7.0+ o Windows 10+
+                        <span data-lang="download-note">Versión actual: 1.0.0 | Requiere Android 7.0+ o Windows 10+</span>
                     </p>
                 </div>
                 <div class="download-visual">
@@ -375,8 +379,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Contacto</h2>
-                <p>¿Tienes preguntas? Nos encantaría ayudarte</p>
+                <h2 data-lang="contact-title">Contacto</h2>
+                <p data-lang="contact-subtitle">¿Tienes preguntas? Nos encantaría ayudarte</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -403,33 +407,33 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Proyecto Académico</h3>
+                            <h3 data-lang="contact-academic">Proyecto Académico</h3>
                             <p>IES Pere Maria Orts i Bosch</p>
                         </div>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        <input type="text" id="name" name="name" data-lang-placeholder="form-name" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Tu email" required>
+                        <input type="email" id="email" name="email" data-lang-placeholder="form-email" placeholder="Tu email" required>
                     </div>
                     <div class="form-group">
                         <select id="subject" name="subject" required>
-                            <option value="">Selecciona un tema</option>
-                            <option value="general">Consulta general</option>
-                            <option value="feature">Solicitar característica</option>
-                            <option value="bug">Reportar error</option>
-                            <option value="collaboration">Colaboración</option>
+                            <option value="" data-lang="form-subject-placeholder">Selecciona un tema</option>
+                            <option value="general" data-lang="form-subject-general">Consulta general</option>
+                            <option value="feature" data-lang="form-subject-feature">Solicitar característica</option>
+                            <option value="bug" data-lang="form-subject-bug">Reportar error</option>
+                            <option value="collaboration" data-lang="form-subject-collab">Colaboración</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                        <textarea id="message" name="message" data-lang-placeholder="form-message" placeholder="Tu mensaje" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">
                         <i class="far fa-paper-plane"></i>
-                        Enviar Mensaje
+                        <span data-lang="form-submit">Enviar Mensaje</span>
                     </button>
                 </form>
             </div>
@@ -445,7 +449,7 @@
                         <i class="fas fa-futbol"></i>
                         <span>Play & Score</span>
                     </div>
-                    <p>La revolución del fútbol amateur. Conecta, juega y compite con la mejor tecnología.</p>
+                    <p data-lang="footer-description">La revolución del fútbol amateur. Conecta, juega y compite con la mejor tecnología.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -454,36 +458,36 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Producto</h3>
+                    <h3 data-lang="footer-product">Producto</h3>
                     <ul>
-                        <li><a href="#features">Características</a></li>
-                        <li><a href="#screenshots">Capturas</a></li>
-                        <li><a href="#download">Descargar</a></li>
-                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#features" data-lang="nav-features">Características</a></li>
+                        <li><a href="#screenshots" data-lang="nav-screenshots">Capturas</a></li>
+                        <li><a href="#download" data-lang="nav-download">Descargar</a></li>
+                        <li><a href="#" data-lang="footer-docs">Documentación</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Soporte</h3>
+                    <h3 data-lang="footer-support">Soporte</h3>
                     <ul>
-                        <li><a href="#contact">Contacto</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Guías</a></li>
-                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#contact" data-lang="nav-contact">Contacto</a></li>
+                        <li><a href="#" data-lang="footer-faq">FAQ</a></li>
+                        <li><a href="#" data-lang="footer-guides">Guías</a></li>
+                        <li><a href="#" data-lang="footer-community">Comunidad</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Legal</h3>
+                    <h3 data-lang="footer-legal">Legal</h3>
                     <ul>
-                        <li><a href="#">Términos de Uso</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Licencias</a></li>
+                        <li><a href="#" data-lang="footer-terms">Términos de Uso</a></li>
+                        <li><a href="#" data-lang="footer-privacy">Privacidad</a></li>
+                        <li><a href="#" data-lang="footer-cookies">Cookies</a></li>
+                        <li><a href="#" data-lang="footer-licenses">Licencias</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Play & Score. Proyecto Final de Grado - Desarrollo de Aplicaciones Multiplataforma.</p>
-                <p>Desarrollado con ❤️ para la comunidad futbolística amateur.</p>
+                <p data-lang="footer-copyright">&copy; 2025 Play & Score. Proyecto Final de Grado - Desarrollo de Aplicaciones Multiplataforma.</p>
+                <p data-lang="footer-made-with">Desarrollado con ❤️ para la comunidad futbolística amateur.</p>
             </div>
         </div>
     </footer>
