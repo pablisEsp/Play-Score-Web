@@ -1,0 +1,43 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Node modules (si en el futuro se agregan herramientas de build)
+node_modules/
+npm-debug.log*
+
+# Archivos de distribución (si se genera un build)
+dist/
+build/
+
+# Archivos de cache
+.cache/
+
+# Archivos de entorno
+.env
+.env.local
+.env.production
+
+# Archivos específicos del proyecto
+# (agregar aquí archivos específicos que no deban subirse)
