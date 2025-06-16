@@ -212,31 +212,20 @@ function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (navToggle && navMenu) {
-        // Function to toggle menu
-        function toggleMenu(e) {
+        // Simple toggle function
+        navToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Add both click and touch events
-        navToggle.addEventListener('click', toggleMenu);
-        navToggle.addEventListener('touchend', toggleMenu);
+        });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
-                document.body.style.overflow = '';
             }
         });
     }
@@ -246,7 +235,6 @@ function initializeNavigation() {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
-            document.body.style.overflow = '';
         });
     });
 
