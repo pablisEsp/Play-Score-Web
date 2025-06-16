@@ -217,8 +217,17 @@ function initializeNavigation() {
             e.preventDefault();
             e.stopPropagation();
             
+            const isActive = navMenu.classList.contains('active');
+            
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (!isActive) {
+                document.body.classList.add('menu-open');
+            } else {
+                document.body.classList.remove('menu-open');
+            }
         });
 
         // Close menu when clicking outside
@@ -226,7 +235,17 @@ function initializeNavigation() {
             if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
             }
+        });
+
+        // Close menu when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
         });
     }
 
