@@ -1079,6 +1079,125 @@ body {
     overflow-y: auto;
 }
 
+/* Disable internal scrolling on mobile to prevent scroll conflicts */
+@media (max-width: 768px) and (pointer: coarse) {
+    .mock-teams-section {
+        overflow-y: hidden;
+        height: auto;
+        max-height: none;
+    }
+    
+    .preview-content {
+        overflow-y: hidden;
+        height: auto;
+        max-height: none;
+    }
+    
+    /* Completely disable any internal scrolling in screenshots section on mobile */
+    .screenshots {
+        overflow: hidden;
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+    
+    .screenshots-carousel {
+        overflow: hidden;
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+    
+    .screenshot-container {
+        overflow: hidden;
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+    
+    /* Prevent touch scrolling conflicts on mockup content */
+    .mockup-content {
+        touch-action: pan-y;
+        overflow: hidden;
+        overscroll-behavior: contain;
+        height: auto;
+        max-height: none;
+    }
+    
+    /* Ensure mockup phones don't interfere with page scroll */
+    .mockup-phone {
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+    
+    /* Prevent any internal scrollable areas in mockups */
+    .mock-feed,
+    .mock-teams-section,
+    .mock-tournament {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: contain;
+    }
+    
+    /* Additional safety for preventing dual scroll */
+    .screenshot.active .mockup-content {
+        pointer-events: none;
+    }
+    
+    .screenshot.active .mockup-content * {
+        pointer-events: none;
+    }
+}
+
+/* Additional mobile scroll fixes for all touch devices */
+@media (hover: none) and (pointer: coarse) {
+    /* Apply to all touch devices regardless of screen size */
+    .screenshots {
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior-y: contain;
+    }
+    
+    .screenshot-container {
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: contain;
+    }
+    
+    .mockup-phone {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    .mockup-content {
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: contain;
+        position: relative;
+    }
+}
+
+/* Additional mobile scroll fix for devices that don't support pointer: coarse */
+@media (max-width: 768px) {
+    .screenshots .mockup-content,
+    .screenshots .mock-teams-section,
+    .screenshots .mock-feed,
+    .screenshots .mock-tournament {
+        overflow: hidden !important;
+        overscroll-behavior: contain !important;
+        touch-action: pan-y !important;
+    }
+    
+    /* Ensure screenshots section allows vertical page scroll only */
+    .screenshots {
+        touch-action: pan-y !important;
+        overscroll-behavior-y: auto !important;
+        overscroll-behavior-x: contain !important;
+    }
+    
+    /* Prevent horizontal scrolling in screenshots */
+    .screenshots-carousel,
+    .screenshot-container {
+        touch-action: pan-y !important;
+        overflow-x: hidden !important;
+    }
+}
+
 .mock-team-list {
     display: flex;
     flex-direction: column;
@@ -2329,5 +2448,52 @@ body {
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* Mobile-specific improvements for screenshots section */
+@media (max-width: 480px) {
+    .screenshot-container {
+        height: 400px;
+    }
+    
+    .mockup-phone {
+        width: clamp(200px, 50vw, 250px);
+        height: clamp(400px, 100vw, 500px);
+        padding: clamp(10px, 2vw, 15px);
+    }
+    
+    .mockup-content {
+        padding: clamp(10px, 2vw, 15px);
+        /* Ensure content doesn't scroll internally */
+        overflow: hidden !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mock-feed,
+    .mock-teams-section,
+    .mock-tournament {
+        flex: 1;
+        overflow: hidden !important;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(8px, 2vw, 12px);
+    }
+    
+    .carousel-controls {
+        padding: 0 10px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .screenshot-caption {
+        font-size: 1rem;
+        margin-top: 1rem;
     }
 }

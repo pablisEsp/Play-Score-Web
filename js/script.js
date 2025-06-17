@@ -375,12 +375,16 @@ function animateCounters() {
 
 // Carrusel de capturas
 function initializeScreenshotCarousel() {
+    // Auto-advance carousel every 5 seconds
     setInterval(() => {
-        changeScreenshot(1);
+        changeScreenshotByDirection(1);
     }, 5000);
+    
+    // Add touch/swipe support for mobile
+    addTouchSupport();
 }
 
-function changeScreenshot(direction) {
+function changeScreenshotByDirection(direction) {
     const screenshots = document.querySelectorAll('.screenshot');
     const dots = document.querySelectorAll('.dot');
     
@@ -405,6 +409,8 @@ function changeScreenshot(n) {
     const screenshots = document.querySelectorAll('.screenshot');
     const dots = document.querySelectorAll('.dot');
     
+    if (screenshots.length === 0) return;
+    
     screenshots.forEach(screenshot => screenshot.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
     
@@ -412,6 +418,59 @@ function changeScreenshot(n) {
     
     screenshots[currentScreenshot - 1].classList.add('active');
     dots[currentScreenshot - 1].classList.add('active');
+}
+
+// Add touch/swipe support for mobile screenshots
+function addTouchSupport() {
+    const screenshotsCarousel = document.querySelector('.screenshots-carousel');
+    if (!screenshotsCarousel) return;
+    
+    let startX = 0;
+    let startY = 0;
+    let isScrolling = false;
+    
+    screenshotsCarousel.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isScrolling = false;
+    }, { passive: true });
+    
+    screenshotsCarousel.addEventListener('touchmove', function(e) {
+        if (!startX || !startY) return;
+        
+        const diffX = Math.abs(e.touches[0].clientX - startX);
+        const diffY = Math.abs(e.touches[0].clientY - startY);
+        
+        // Determine if user is scrolling vertically or horizontally
+        if (!isScrolling) {
+            isScrolling = diffY > diffX ? 'vertical' : 'horizontal';
+        }
+        
+        // Only prevent default for horizontal swipes to allow vertical scrolling
+        if (isScrolling === 'horizontal' && diffX > 10) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    screenshotsCarousel.addEventListener('touchend', function(e) {
+        if (!startX || !startY) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        
+        // Only trigger screenshot change for significant horizontal swipes
+        if (isScrolling === 'horizontal' && Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                changeScreenshotByDirection(1); // Swipe left - next
+            } else {
+                changeScreenshotByDirection(-1); // Swipe right - previous
+            }
+        }
+        
+        startX = 0;
+        startY = 0;
+        isScrolling = false;
+    }, { passive: true });
 }
 
 // Formulario de contacto
@@ -767,3 +826,4 @@ window.addEventListener('error', function(e) {
 
 // Exportar funciones para uso global
 window.changeScreenshot = changeScreenshot;
+window.changeScreenshotByDirection = changeScreenshotByDirection;
