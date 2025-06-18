@@ -887,30 +887,33 @@ body {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .screenshot-container {
     display: flex;
     transition: transform 0.5s ease;
-    height: 500px;
+    height: auto;
+    min-height: 600px;
+    width: 300%; /* 3 screenshots * 100% each = 300% total width */
 }
 
 .screenshot {
-    min-width: 100%;
+    min-width: 100%; /* Each screenshot takes full container width */
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.screenshot.active {
-    opacity: 1;
+    justify-content: flex-start;
+    padding: 1rem 0;
 }
 
 .mockup-phone {
-    width: clamp(250px, 25vw, 320px);
-    height: clamp(500px, 50vw, 640px);
+    width: clamp(280px, 25vw, 350px);
+    height: clamp(560px, 50vw, 700px);
+    max-height: 650px;
     background: var(--card-bg);
     border-radius: clamp(20px, 2.5vw, 25px);
     padding: clamp(12px, 1.5vw, 18px);
@@ -1134,15 +1137,6 @@ body {
         overflow: hidden;
         touch-action: none;
         overscroll-behavior: contain;
-    }
-    
-    /* Additional safety for preventing dual scroll */
-    .screenshot.active .mockup-content {
-        pointer-events: none;
-    }
-    
-    .screenshot.active .mockup-content * {
-        pointer-events: none;
     }
 }
 
@@ -2132,7 +2126,7 @@ body {
     }
 
     .screenshot-container {
-        height: 350px;
+        height: 500px;
     }
 
     .mockup-phone {
@@ -2320,7 +2314,7 @@ body {
     }
 
     .screenshot-container {
-        height: 300px;
+        height: 450px;
     }
 
     .mockup-phone {
@@ -2454,7 +2448,7 @@ body {
 /* Mobile-specific improvements for screenshots section */
 @media (max-width: 480px) {
     .screenshot-container {
-        height: 400px;
+        height: 550px;
     }
     
     .mockup-phone {

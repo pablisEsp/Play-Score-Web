@@ -375,6 +375,22 @@ function animateCounters() {
 
 // Carrusel de capturas
 function initializeScreenshotCarousel() {
+    // Initialize first screenshot position
+    const screenshotContainer = document.querySelector('.screenshot-container');
+    if (screenshotContainer) {
+        screenshotContainer.style.transform = 'translateX(0%)';
+    }
+    
+    // Initialize dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        if (index === 0) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+    
     // Auto-advance carousel every 5 seconds
     setInterval(() => {
         changeScreenshotByDirection(1);
@@ -385,12 +401,12 @@ function initializeScreenshotCarousel() {
 }
 
 function changeScreenshotByDirection(direction) {
-    const screenshots = document.querySelectorAll('.screenshot');
+    const screenshotContainer = document.querySelector('.screenshot-container');
     const dots = document.querySelectorAll('.dot');
     
-    if (screenshots.length === 0) return;
+    if (!screenshotContainer || dots.length === 0) return;
     
-    screenshots[currentScreenshot - 1].classList.remove('active');
+    // Remove active class from current dot
     dots[currentScreenshot - 1].classList.remove('active');
     
     currentScreenshot += direction;
@@ -401,22 +417,30 @@ function changeScreenshotByDirection(direction) {
         currentScreenshot = totalScreenshots;
     }
     
-    screenshots[currentScreenshot - 1].classList.add('active');
+    // Calculate transform position (each screenshot takes 100% width)
+    const translateX = -(currentScreenshot - 1) * 100;
+    screenshotContainer.style.transform = `translateX(${translateX}%)`;
+    
+    // Add active class to new dot
     dots[currentScreenshot - 1].classList.add('active');
 }
 
 function changeScreenshot(n) {
-    const screenshots = document.querySelectorAll('.screenshot');
+    const screenshotContainer = document.querySelector('.screenshot-container');
     const dots = document.querySelectorAll('.dot');
     
-    if (screenshots.length === 0) return;
+    if (!screenshotContainer || dots.length === 0) return;
     
-    screenshots.forEach(screenshot => screenshot.classList.remove('active'));
+    // Remove active class from all dots
     dots.forEach(dot => dot.classList.remove('active'));
     
     currentScreenshot = n;
     
-    screenshots[currentScreenshot - 1].classList.add('active');
+    // Calculate transform position (each screenshot takes 100% width)
+    const translateX = -(currentScreenshot - 1) * 100;
+    screenshotContainer.style.transform = `translateX(${translateX}%)`;
+    
+    // Add active class to current dot
     dots[currentScreenshot - 1].classList.add('active');
 }
 
